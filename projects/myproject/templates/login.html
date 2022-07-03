@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>MOI UNIVERSITY</title>
+    <style>
+      body{
+  background-color: grey;
+}
+.SHAPE{
+  position: absolute;
+  font-size: 20px;
+  background-color: green;
+  width: 400px;
+  height: 570px;
+  padding-left: 50px;
+  margin-left: 450px;
+  margin-right: 600px;
+  border-radius: 30px;
+  align-items: center;
+}
+h3{
+  border-color: yellow;
+  margin-right: 10px;
+  margin-left: 70px;
+  margin-top: 150px;
+
+}
+.font{
+  font-size: 15px;
+}
+h5{
+  margin-left: 70px;
+}
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+
+
+}
+
+.icon {
+  padding: 10px;
+  background: brown;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+  border-radius:5px 0  0  5px;
+
+}
+
+.input-field {
+  width: 70%;
+  padding: 10px;
+  outline: none;
+  border-radius:0  5px 5px  0;
+}
+
+/*.input-field:focus {
+  border: 2px solid dodgerblue;
+}*/
+
+/* Set a style for the submit button */
+.btn {
+  background-color: brown;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  width: 60%;
+  opacity: 0.9;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+.h4{
+  margin-top: 15px;
+  font-size: 15px;
+  margin-left: 20px;
+  
+
+}
+
+.Forgot{
+  margin-bottom: 100px;
+  margin-left: 40px;
+  padding-bottom: 50px;
+  color: white;
+  font-style:oblique;
+  
+}
+
+.btn:hover {
+  opacity: 1;
+}
+.foot{
+
+  height: 40px;
+  width: 100%;
+  background-color: black;
+  margin-top:600px;
+  position: absolute;
+  
+}
+.graph{
+  text-align: center;
+  color: white;
+
+}
+h1{
+  color: red;
+}
+
+    </style>
+
+    <script type="text/javascript">
+    function validate() {
+      if (document.myform.Regno.value=="") {
+        alert("please enter your registration number");
+        document.myform.Regno.focus()
+        return false
+
+      }
+
+      else if (document.myform.email.value=="") {
+        alert("please enter the email address");
+        document.myform.email.focus()
+        return false
+
+      }else if (document.myform.password.value=="") {
+        alert("please enter your password");
+        document.myform.password.focus()
+        return false
+
+      }
+      else {
+        return true
+      }
+    }
+
+    </script>
+
+  </head>
+  <body>
+    <div class="SHAPE">
+      {% for message in messages %}
+      <h1>{{message}}</h1>
+      {% endfor %}
+
+      <form method="POST" action="login" style="max-width:500px;margin:auto" name="myform" onsubmit="return(validate());">
+        {% csrf_token %}
+        <h3>MOI UNIVERSITY</h3>
+      <h5>Foundation of knowledge</h5>
+      <div class="input-container">
+        <i class="fa fa-user icon"></i>
+        <input class="input-field" type="text" placeholder="username" id="text" name="username">
+      </div>
+
+      <div class="input-container">
+        <i class="fa fa-key icon"></i>
+        <input class="input-field" type="password" placeholder="password" id="word" name="password">
+      </div>
+      <div>
+        <input type="checkbox">
+        <label class="font">Remember me</label><br>
+      </div>
+      <button type="submit" class="btn">Log In</button>
+      <div class="Forgot">
+        <h4 class="h4">Forgot your password?</h4>
+      </div>
+      
+
+
+    </form>
+
+    </div>
+    <footer class="footer">
+      <div class="foot">
+        <p class="graph">Copyright &copy; your website 2022</p>
+      </div>
+    </footer>
+   
+
+  </body>
+ 
+</html>

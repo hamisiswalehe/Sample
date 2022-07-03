@@ -1,0 +1,274 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <Meta name="viewport" content="width=device.width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+    <style>
+        button{
+    border-radius: 10px;
+    font-size: 40px;
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+    width: 150px;
+    background: white;
+    color: black;
+    border: none;
+    outline: none;
+    position:static;
+    top: 0;
+    font-size: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+.container{
+    text-align: center;
+    flex-direction: column;
+
+}
+#click{
+
+    margin-top:150px;
+    margin-right:100px;
+
+}
+#click1{
+    margin-top:150px;
+    margin-right:100px;
+    margin-top: 20px;
+
+}
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+html{
+    height: 100%;
+
+}
+.zero{
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    background-color: black;
+    margin: 0;
+    
+}
+
+.one{
+    padding: 10px;
+    width: 100%;
+    height: 80px;
+    background-color:green;
+    margin:0;
+    text-align: center;
+    color: white;
+   
+}
+.one1{
+    width: 20%;
+    height:70px;
+    background-color:white;
+    margin: 10px;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-left: auto;
+    shape-outside:circle(10);
+
+}
+.two{
+    text-align: center;
+    padding: 10px;
+    width: 60%;
+    height: 40px;
+    background-color:lightgreen;
+    margin-top: 10px;
+    margin-left: 200px;
+    position: static;
+    
+}
+.moving{
+    color:red;
+    font-size: 20px;
+}
+.three,.four,.five{
+    text-align: center;
+    padding: 10px;
+    width: 30%;
+    height: 180px;
+    background-color:rgb(21, 255, 0);
+    margin-top: 20px;
+    margin-left: 400px;
+    position: static;
+}
+.six{
+    text-align: center;
+    padding: 10px;
+    width: 60%;
+    height: 40px;
+    background-color:lightgreen;
+    color: white;
+    margin-top: 10px;
+    margin-left: 200px;
+    position: static;
+}
+.seven{
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    height: 80px;
+    background-color:blue;
+    margin-top: 10px;
+    position: static;
+}
+.stamp{
+    text-align: center;
+    font-size: 30px;
+    color: red;
+    margin-top: 200px;
+}
+.group{
+    margin: 10px 0px 10px 0px;
+}
+.top{
+    width: 100%;
+    height: 80px;
+    
+}
+body{
+    background: #03a9f4;
+    height: 100%;
+    position: relative;
+
+}
+.sidebar{
+    background: #ffffff;
+    height: 100%;
+    width: 0px;
+    position: absolute;
+    top: 0;
+    font-size: 35px;
+    font-weight: 700px;
+    overflow:hidden; 
+    transition: 0.25s ease-in-out;
+
+}
+.content{
+    margin-top: 80px;
+    
+    
+
+}
+.option{
+    width: 100%;
+    height: 50px;
+    margin: 20px 0;
+    padding: 20px;
+    cursor: pointer;
+    
+
+
+}
+.option:hover{
+    background: #23a811;
+}
+.btn1{
+    display: block;
+    background: white;
+    color: #03a9f4;
+    width: 50px;
+    height: 50px;
+    border: none;
+    outline: none;
+    margin-left: 40px;
+    margin-right: auto;
+    margin-top: 10px;
+    position: fixed;
+    top: 0;
+    font-size: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+
+
+}
+    </style>
+    <title>Stamp exam card</title>
+</head>
+<body>
+
+  <div class="top">
+      <h1 class="zero">STUDENT PORTAL</h1>
+      <div class="stamp">
+        
+          <p id="butt"></p>
+          <div class="container"><button id="click">STAMP</button></div>
+          <div class="container">
+            {% block content %}
+            {% for customer in object_list %}
+            {{customer}}
+           
+                
+            <a href="{% url 'proj:customer-pdf-view' customer.pk%}"><button class="btn btn-primary">Download</button></a>
+
+  
+            {% endfor %}
+            {% endblock content %}
+            
+           
+          </div>
+          
+
+      </div>
+     
+        <div class="sidebar" id="sidebar">
+            <div class="content">
+                <div class="option">Home</div>
+                <div class="option">About</div>
+                <div class="option">Help</div>
+                <div class="option">Feedback</div>
+                <div class="option">Settings</div>
+
+            </div>
+        </div>
+  </div> 
+
+   
+  
+    <button class="btn1" onclick="toggle()"><i class="fas fa-bars"></i></button>
+    <script>
+        var toggled = true;
+        function toggle(){
+            if(toggled==false){
+                document.getElementById("sidebar").style.width="0";
+                toggled = true;
+            }else if(toggled==true){
+                document.getElementById("sidebar").style.width="300px";
+                toggled = false;
+            }
+        }
+
+        let User={
+            name:"{{user.username}}",
+            
+
+        };
+        function stamp(){
+            document.getElementById("butt").innerHTML= "Congratulations " +User.name+ ", you have successifully stamped your exam card you can now download it";
+        }
+        User.message=stamp;
+        document.getElementById("click").onclick=User.message;
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>navibar</title>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background: url(010.jpg);
+  background-size: cover;
+  font-family: sans-serif;
+  background-position: center ;
+  
+}
+
+.moving{
+  color: blue;
+  font-size: 30px;
+  text-shadow: 6px 6px 6px black;
+  
+}
+.menubar{
+   background: rgb(0,100,0);
+   text-align: center;
+}
+.menubar ul{
+  display: inline-flex;
+  list-style:none;
+  color: #fff;
+}
+.menubar ul li{
+  width: 120px;
+  padding: 15px;
+  margin: 15px;
+  
+} 
+.menubar ul li a
+{
+  text-decoration: none;
+  color:#fff;
+}
+.active, .menubar ul li:hover{
+  background:#2bab0d;
+  border-radius: 3px;
+}
+.menubar .fa{
+  margin-right: 8px;
+}
+.submenu{
+  display: none;
+}
+.menubar ul li:hover .submenu{
+  display: block;
+  position: absolute;
+  background: rgb(0,100,0);
+  margin-top: 15px;
+  margin-left: -15px;
+}
+.menubar ul li:hover .submenu ul{
+  display: block;
+  margin: 10px;
+}
+.menubar ul li:hover .submenu ul li{
+  width: 150px;
+  padding: 10px;
+  border-bottom: 1px dotted #fff;
+  background: transparent;
+  border-radius: 0;
+  text-align: left;
+}
+.menubar ul li:hover .submenu ul li a{
+  color: #b2ff00;
+
+}
+.fa-angle-right{
+  float: right;
+}
+.submenu-1{
+  display: none;
+}
+.hover-me:hover .submenu-1{
+  position: absolute;
+  display: block;
+  margin-top: -40px;
+  margin-left: 140px;
+  background: rgba(0,100,0);
+}
+    </style> 
+  </head>
+  <body>
+    <div class="menubar">
+    <ul>
+      <li class="active"><a href="#"><i class="fa fa-home" ></i>Home</a></li>
+      <li><a href="#"><i class="fa fa-user" ></i>About us</a>
+          <div class="submenu">
+            <ul>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Clients</a></li>
+              <li class="hover-me"><a href="#">Career<i class="fa fa-angle-right"></i></a>
+                <div class="submenu-1">
+                  <ul>
+                    <li><a href="#">Education</a></li>
+                    <li><a href="#">Computer science</a></li>
+                    <li><a href="#">Engineering</a></li>
+                    <li><a href="#">Medicine</a></li>
+      
+                  </ul>
+                </div>
+              </li>
+              <li><a href="#">Legacy</a></li>
+
+            </ul>
+          </div>
+
+
+      </li>
+      <li><a href="#"><i class="fa fa-phone" ></i>Contact</a>
+        <div class="submenu">
+            <ul>
+              <li><a href="#">Email</a></li>
+              <li><a href="#">Phone</a></li>
+              <li><a href="#">Linkedin</a></li>
+              <li><a href="#">Twitter</a></li>
+
+            </ul>
+        </div> 
+
+      </li>
+      <li><a href="#"><i class="fa fa-users" ></i>Clients</a></li>
+      <li><a href="#"><i class="fa fa-clone" ></i>Services</a></li>
+      <li><a href="#"><i class="fa fa-angellist" ></i>investors</a></li>
+      <li><a href="#"><i class="fa fa-clone" ></i>News</a></li>
+      
+    </ul>
+</div>
+
+  <marquee class="moving">WELCOME TO MOI UNIVERSITY,THE UNIVERSITY WITH A DIFFERENCE</marquee>
+
+
+  </body>
+</html>

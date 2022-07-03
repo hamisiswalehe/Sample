@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1>This is the document</h1>
+        <script>
+
+            var doc = new jsPDF();
+            var imageData = 'data:image/jpg;base64';Base64.encode('010.jpg');
+            doc.setFontSize(40);
+            doc.text(20,30,'Hello world');
+            doc.addImage(imageData,'jpg',15,40,180,160);
+            doc.save("output.pdf");
+
+
+        </script>
+    </body>
+</html>

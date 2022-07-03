@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>button</title>
+        <style>
+            #image{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>This is the button</h1>
+            <img id="image" src="templates/010.jpg" alt=" JPG image">
+        </div>
+        <button type="button" onclick="show()" id="btn">Show image</button>
+        <script>
+            function show(){
+                document.getElementById("image").style.display = "block";
+                document.getElementById("btn").style.display="none";
+            }
+        </script>
+        
+    </body>
+</html>

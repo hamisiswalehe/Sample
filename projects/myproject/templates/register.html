@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>User registration form</title>
+    <style>
+body{
+  font-size: 12px;
+  background-color:gray;
+  width: 100%;
+}
+
+
+
+.header{
+  padding: 20px;
+  margin:50px auto 0px;
+  width: 30%;
+  background:blue ;
+  color: white;
+  text-align: center;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  border: 1px solid #80C4DE;
+
+
+
+
+
+}
+.group{
+  margin: 10px 0px 10px 0px;
+
+}
+.group input{
+  width: 93%;
+  height:20px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border:1px solid gray;
+}
+.group label{
+  display: block;
+  text-align: left;
+  margin: 3px;
+
+}
+.check{
+  margin-top: 10px;
+  
+}
+
+form{
+  width: 30%;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid #80C4DE;
+  background: rgb(151, 68, 68);
+  border-radius: 0px 0px 10px 10px;
+  position:relative;
+
+}
+#welcome{
+  color: white;
+}
+.radio{
+  display:block;
+}
+h1{
+  color:red;
+  text-align: center;
+
+}
+    </style>
+  </head>
+  <body>
+    {% for message in messages %}
+    <h1>{{message}}</h1>
+    {% endfor %}
+    <div class="header">
+      <h2>Register</h2>
+    </div>
+    <form action="register" method="POST">
+      {% csrf_token %}
+      <div class="group">
+        <label >Username</label>
+        <input type="text" name="username" placeholder="Please enter your firstname" required>
+
+      </div>
+      <div class="group">
+        <label >Firstname</label>
+        <input type="text" name="first_name" placeholder="Please enter your firstname" required>
+
+      </div>
+      
+      <div class="group">
+        <label >Lastname</label>
+        <input type="text" name="last_name" placeholder="Please enter your lastname" required>
+
+      </div>
+      <div>
+        <label for="Male">Male</label>
+        <input type="radio" name="gender" class="check" required><br><br>
+        
+      </div>
+      <div>
+        <label for="female">Female</label>
+        <input type="radio" name="gender" required><br><br>
+      </div>
+      
+      <div class="group">
+        <label >Email</label>
+        <input type="text" placeholder="Please enter your email-address" name="email" required>
+
+      </div>
+      <div class="group">
+        <label>Password</label>
+        <input type="password" placeholder="Please enter your Password" name="password" required>
+      </div>
+      <div class="group">
+        <label >confirm Password</label>
+        <input type="password" placeholder="Confirm your password" name="password" required>
+      </div>
+      <div class="group">
+        <button type="submit" name="register" class="btn">Register</button>
+      </div>
+      <a href="index.html">sign in</a>
+
+    </form>
+
+  </body>
+</html>
